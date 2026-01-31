@@ -1,11 +1,11 @@
 .footer {
-  background-color: transparent;
+  background: transparent;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 10px;
-  color: rgb(168, 168, 168);
+  gap: 12px;
+  color: var(--text-muted);
   position: absolute;
   bottom: 30px;
   font-size: small;
@@ -14,21 +14,32 @@
 .options {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 24px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .options p {
   cursor: pointer;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.options p:hover {
+  color: var(--accent-soft);
 }
 
 .main {
-  background-color: rgb(4, 15, 45);
-  border-radius: 20px;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  color: white;
-  padding: 25px;
+  color: var(--text-primary);
+  padding: 28px;
   width: 700px;
   max-height: 700px;
   overflow: scroll;
@@ -36,6 +47,7 @@
   font-size: large;
   position: absolute;
   top: 30px;
+  box-shadow: var(--shadow-md);
 }
 
 .main-top {
@@ -47,6 +59,12 @@
 .close-btn {
   cursor: pointer;
   font-size: large;
+  color: var(--text-muted);
+  transition: color var(--transition);
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
 }
 
 @media (max-width: 600px) {

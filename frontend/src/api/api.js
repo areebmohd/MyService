@@ -21,4 +21,23 @@ API.interceptors.request.use(
   (error) => Promise.reject(error)
 );
 
+// On 401 (expired/invalid token), clear storage and send user to login.
+// Skip redirect for login request so wrong-password shows toast instead of reloading.
+API.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    if (error.response?.status === 401) {
+      const isLoginRequest =
+        error.config?.url === "/user/login" ||
+        (error.config?.url && error.config.url.endsWith("/user/login"));
+      if (!isLoginRequest) {
+        localStorage.removeItem("token");
+        localStorage.removeItem("user");
+        window.location.href = "/login";
+      }
+    }
+    return Promise.reject(error);
+  }
+);
+
 export default API;

@@ -1,5 +1,25 @@
 @import url("https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
+:root {
+  --bg-dark: #050810;
+  --bg-card: rgba(4, 15, 45, 0.85);
+  --bg-card-hover: rgba(6, 22, 66, 0.95);
+  --accent: #3b82f6;
+  --accent-soft: #63a4ff;
+  --accent-glow: rgba(59, 130, 246, 0.35);
+  --text-primary: #f8fafc;
+  --text-muted: #94a3b8;
+  --border-subtle: rgba(99, 164, 255, 0.25);
+  --radius-sm: 10px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.25);
+  --shadow-md: 0 4px 20px rgba(0, 0, 0, 0.35);
+  --shadow-glow: 0 0 24px var(--accent-glow);
+  --transition: 0.2s ease;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +28,10 @@
 }
 
 body {
-  background-color: black;
+  background-color: var(--bg-dark);
   color: #1e90ff;
   min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
 }
 
 .stars {
@@ -20,7 +41,8 @@ body {
   width: 100vw;
   height: 100vh;
   z-index: -1;
-  background: black;
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(30, 58, 138, 0.15), transparent),
+    var(--bg-dark);
 }
 
 .stars::before {
@@ -34,7 +56,7 @@ body {
     50vw 40vh #fff, 56vw 60vh #fff, 61vw 5vh #fff, 68vw 76vh #fff,
     72vw 50vh #fff, 78vw 90vh #fff, 83vw 25vh #fff, 88vw 65vh #fff,
     92vw 15vh #fff, 96vw 45vh #fff, 99vw 80vh #fff, 3vw 60vh #fff;
-  opacity: 0.9;
+  opacity: 0.85;
 }
 
 .stars::after {
@@ -48,11 +70,12 @@ body {
     63vw 10vh #ddd, 69vw 70vh #ddd, 74vw 40vh #ddd, 79vw 78vh #ddd,
     84vw 55vh #ddd, 89vw 18vh #ddd, 94vw 82vh #ddd, 98vw 25vh #ddd,
     2vw 75vh #ddd, 6vw 35vh #ddd, 16vw 12vh #ddd, 27vw 95vh #ddd;
-  opacity: 0.6;
+  opacity: 0.5;
 }
 
 svg {
-  fill: white;
+  fill: var(--text-primary);
   height: 25px;
   cursor: pointer;
+  transition: fill var(--transition);
 }

@@ -10,9 +10,9 @@
 }
 
 .auth-card {
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-md), 0 0 40px rgba(59, 130, 246, 0.08);
+  border-radius: var(--radius-lg);
   padding: 60px 70px;
   width: 100%;
   max-width: 500px;
@@ -21,68 +21,102 @@
   align-items: center;
   justify-content: center;
   gap: 20px;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  transition: box-shadow var(--transition);
+}
+
+.auth-card:hover {
+  box-shadow: var(--shadow-md), 0 0 48px rgba(59, 130, 246, 0.12);
 }
 
 .site-title {
-  color: white;
+  color: var(--text-primary);
   font-size: xx-large;
+  font-weight: 600;
+  letter-spacing: -0.02em;
 }
 
 .auth-card input {
   width: 100%;
-  padding: 12px 15px;
+  padding: 14px 16px;
   margin-bottom: 15px;
-  border-radius: 8px;
-  border: 1px solid #1e90ff;
-  background-color: transparent;
-  color: #63a4ff;
+  border-radius: var(--radius-sm);
+  border: 2px solid var(--border-subtle);
+  background: rgba(5, 8, 16, 0.5);
+  color: var(--accent-soft);
   font-size: 15px;
   outline: none;
+  transition: border-color var(--transition), box-shadow var(--transition), background var(--transition);
 }
 
 .auth-card input::placeholder {
-  color: #5c85d6;
+  color: var(--text-muted);
+}
+
+.auth-card input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-glow);
+  background: rgba(5, 8, 16, 0.7);
 }
 
 .submit-btn {
   width: 100%;
-  background-color: blue;
+  background: linear-gradient(135deg, var(--accent) 0%, #2563eb 100%);
   color: white;
   border: none;
-  border-radius: 8px;
-  padding: 12px 0;
+  border-radius: var(--radius-sm);
+  padding: 14px 0;
   font-size: 16px;
   font-weight: 600;
   cursor: pointer;
-  transition: all 0.3s ease;
+  transition: transform var(--transition), box-shadow var(--transition), opacity var(--transition);
 }
 
 .submit-btn:hover {
-  background-color: #1e90ff;
-  box-shadow: 0 0 5px #1e90ff;
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-glow);
+  opacity: 0.95;
+}
+
+.submit-btn:active {
+  transform: translateY(0);
 }
 
 .forgot-text {
   cursor: pointer;
+  color: var(--accent-soft);
+  font-size: 14px;
+  transition: color var(--transition);
+}
+
+.forgot-text:hover {
+  color: var(--text-primary);
 }
 
 .toggle-text {
   margin-top: 20px;
-  color: white;
+  color: var(--text-muted);
   font-size: 14px;
 }
 
 .toggle-text span {
-  color: #1e90ff;
+  color: var(--accent-soft);
   cursor: pointer;
-  transition: color 0.3s ease;
+  transition: color var(--transition);
+  font-weight: 500;
+}
+
+.toggle-text span:hover {
+  color: var(--text-primary);
 }
 
 @media (max-width: 600px) {
   .auth-card {
-    padding: 30px 25px;
+    padding: 32px 24px;
     max-width: 90%;
-    gap: 15px;
+    gap: 16px;
   }
 
   .site-title {
@@ -97,7 +131,7 @@
 
 @media (min-width: 601px) and (max-width: 1024px) {
   .auth-card {
-    padding: 40px 50px;
-    max-width: 400px;
+    padding: 44px 50px;
+    max-width: 420px;
   }
 }

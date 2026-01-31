@@ -1,35 +1,42 @@
 .search-results-page {
   min-height: 100vh;
-  padding: 20px 40px;
+  padding: 24px 40px;
 }
 
 .results-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 10px;
-  margin-bottom: 20px;
+  padding-bottom: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .results-header p {
-  color: white;
+  color: var(--text-primary);
   font-size: 40px;
+  font-weight: 600;
   text-align: left;
+  letter-spacing: -0.02em;
 }
 
 .backBtn {
-  background-color: white;
+  background: var(--text-primary);
   border: none;
-  color: black;
+  color: var(--bg-dark);
   padding: 10px 20px;
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   cursor: pointer;
-  transition: 0.3s ease;
+  font-weight: 600;
+  font-size: 15px;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
 }
 
 .backBtn:hover {
-  background-color: blue;
+  background: var(--accent);
   color: white;
+  transform: translateY(-1px);
 }
 
 .filters {
@@ -37,29 +44,34 @@
   margin-bottom: 40px;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
 .results-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 25px;
+  gap: 24px;
 }
 
 .user-card {
-  background-color: transparent;
-  border: 2px solid #1e90ff;
-  border-radius: 10px;
-  padding: 30px 5px;
+  background: var(--bg-card);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  padding: 28px 12px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
+  gap: 14px;
   cursor: pointer;
-  transition: 0.3s ease;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
 }
 
 .user-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-6px);
+  border-color: var(--accent-soft);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
 }
 
 .profile-pic {
@@ -67,6 +79,7 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
+  border: 2px solid var(--border-subtle);
 }
 
 .details {
@@ -76,34 +89,37 @@
 }
 
 .user-card .username {
-  color: #1e90ff;
+  color: var(--accent-soft);
   font-size: 20px;
+  font-weight: 600;
   text-align: center;
 }
 
 .user-card .profession {
-  font-size: 18px;
-  color: white; 
+  font-size: 16px;
+  color: var(--text-muted);
   text-align: center;
 }
 
 .user-card .likes {
-  background-color: white;
-  color: black;
+  background: rgba(248, 250, 252, 0.12);
+  color: var(--text-primary);
   padding: 10px 20px;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   font-size: 14px;
-  margin-top: 15px;
+  font-weight: 500;
+  margin-top: 12px;
   text-align: center;
+  border: 1px solid var(--border-subtle);
 }
 
 @media (max-width: 600px) {
   .search-results-page {
-    padding: 10px 15px;
+    padding: 16px 16px;
   }
 
   .results-header {
-    margin-bottom: 5px;
+    margin-bottom: 8px;
   }
 
   .results-header p {
@@ -112,23 +128,23 @@
   }
 
   .backBtn {
-    padding: 5px 13px;
+    padding: 8px 14px;
     font-size: 14px;
   }
 
   .filters {
     flex-direction: column;
-    gap: 10px;
-    margin-bottom: 20px;
+    gap: 12px;
+    margin-bottom: 24px;
   }
 
   .results-grid {
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 15px;
+    gap: 16px;
   }
 
   .user-card {
-    padding: 15px 10px;
+    padding: 20px 10px;
   }
 
   .profile-pic {
@@ -145,7 +161,7 @@
   .filters {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 15px;
+    gap: 16px;
   }
 
   .results-grid {
