@@ -1,6 +1,6 @@
 .profile-page {
   min-height: 100vh;
-  padding: 30px 50px;
+  padding: 100px 50px 30px 50px;
   position: relative;
 }
 
@@ -8,9 +8,19 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: 30px;
+  padding: 12px 50px;
   flex-wrap: wrap;
   gap: 12px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  background: rgba(5, 8, 16, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  box-sizing: border-box;
 }
 
 .nav p {
@@ -486,11 +496,13 @@
 
 @media (max-width: 600px) {
   .profile-page {
-    padding: 20px;
+    padding: 90px 20px 20px 20px;
   }
 
   .nav {
     padding-bottom: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
   }
 
   .nav p {
