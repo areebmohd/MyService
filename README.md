@@ -7,6 +7,12 @@ The project is structured with a **frontend** UI for customers and a **backend**
 
 ---
 
+## ⭐ Main Goal
+
+To provide a platform where users can provide and serach for all types of services from small to big ones with filters for users
+and profiles for providers having all their information even posts to showcase their work and content. Users can search by provider
+name or job title and apply filter to result.
+
 ## 🚀 Features
 
 ✔ Services listing & details
@@ -15,6 +21,7 @@ The project is structured with a **frontend** UI for customers and a **backend**
 ✔ MongoDB database for storing users, services, bookings
 ✔ Fully modular MERN architecture
 ✔ Ideal as a base for a real service marketplace
+✔ AWS storage for photos and videos
 
 ---
 
