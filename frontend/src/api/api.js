@@ -1,7 +1,9 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://my-service-backend.onrender.com/api",
+  baseURL: window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1"
+    ? "http://localhost:3000/api"
+    : "https://my-service-backend.onrender.com/api",
   headers: {
     "Content-Type": "application/json",
   },
