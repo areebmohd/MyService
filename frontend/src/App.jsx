@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginRegisterPage from "./pages/LoginRegisterPage";
 import SearchResultsPage from "./pages/SearchResultsPage";
 import ProfilePage from "./pages/ProfilePage";
-import { useState } from "react";
+import API from "./api/api";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -30,6 +30,48 @@ function LoginRoute({ activeSection, setActiveSection }) {
 
 function App() {
   const [activeSection, setActiveSection] = useState(null);
+  const [backendConnected, setBackendConnected] = useState(false);
+  const [connectingMessage, setConnectingMessage] = useState("Waking up server...");
+
+  useEffect(() => {
+    let active = true;
+    let retries = 0;
+    const checkConnection = async () => {
+      try {
+        await API.get("/health");
+        if (active) {
+          setBackendConnected(true);
+        }
+      } catch (err) {
+        console.warn("Backend connection failed, retrying...", err);
+        if (active) {
+          retries++;
+          if (retries > 3) {
+            setConnectingMessage("Server is taking a moment to spin up, please stand by...");
+          }
+          setTimeout(checkConnection, 3000); // Retry every 3 seconds
+        }
+      }
+    };
+    checkConnection();
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  if (!backendConnected) {
+    return (
+      <div className="backend-loading-screen">
+        <div className="stars"></div>
+        <div className="backend-loading-container">
+          <div className="backend-loading-logo">MyService</div>
+          <div className="spinner"></div>
+          <div className="backend-loading-title">Connecting to Backend</div>
+          <p className="backend-loading-text">{connectingMessage}</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <Router>

@@ -41,12 +41,15 @@
   color: var(--text-primary);
   padding: 28px;
   width: 700px;
-  max-height: 700px;
-  overflow: scroll;
+  max-height: 80vh;
+  overflow: auto;
   scrollbar-width: none;
   font-size: large;
-  position: absolute;
-  top: 30px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2000;
   box-shadow: var(--shadow-md);
 }
 

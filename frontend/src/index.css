@@ -79,3 +79,71 @@ svg {
   cursor: pointer;
   transition: fill var(--transition);
 }
+
+/* Backend Loading Screen */
+.backend-loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  background: radial-gradient(circle at center, rgba(3, 15, 45, 0.95), var(--bg-dark));
+  color: var(--text-primary);
+  text-align: center;
+  padding: 20px;
+}
+
+.backend-loading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  max-width: 450px;
+  padding: 40px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-md), var(--shadow-glow);
+  backdrop-filter: blur(12px);
+}
+
+.backend-loading-logo {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: -0.02em;
+  margin-bottom: 10px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(59, 130, 246, 0.1);
+  border-left-color: var(--accent);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.backend-loading-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--accent-soft);
+  margin-top: 10px;
+}
+
+.backend-loading-text {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
